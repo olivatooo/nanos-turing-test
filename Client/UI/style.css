@@ -1,0 +1,60 @@
+body{
+	background-color:transparent !important;
+}
+#objectives {
+	
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.bottom-left
+{
+	bottom: 8px;
+	left: 8px;
+	position: fixed;
+}
+
+.bottom-right
+{
+	bottom: 8px;
+	right: 8px;
+	position: fixed;
+}
+
+.top-top
+{
+	position: fixed;
+	top: 8px;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+
+.top-left
+{
+	position: fixed;
+	top: 8px;
+	left: 8px;
+}
+
+.center-left{
+	position: fixed;
+	/* bring your own prefixes */
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.centered
+{
+	position: fixed;
+	left: 8px;
+	top: 25%;
+	transform: translate(0, -50%);
+}
+
+.large.text {
+	font-size: 2rem;
+ }
