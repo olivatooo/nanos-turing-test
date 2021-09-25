@@ -7,7 +7,7 @@ function create_hunter(player)
 	
 	local selected_mesh = character_meshes[math.random(#character_meshes)]
 	local new_char = Character(spawn_locations[math.random(#spawn_locations)], Rotator(), selected_mesh)
-	Events:CallRemote("SetTeam", player, {"human"})
+	Events.CallRemote("SetTeam", player, "human")
 	local wpn = nil
 	if money < 2000 then
 		wpn = NanosWorldWeapons.Glock(Vector(), Rotator())
@@ -41,7 +41,7 @@ function create_hunter(player)
 	player:SetValue("type", "hunter")
 	number_of_hunters = number_of_hunters + 1
 	-- Customization
-	if (selected_mesh == "NanosWorld::SK_Male") then
+	if (selected_mesh == "nanos-world::SK_Male") then
 		local selected_hair = sk_male_hair_meshes[math.random(#sk_male_hair_meshes)]
 		if (selected_hair ~= "") then
 			new_char:AddStaticMeshAttached("hair", selected_hair, "hair_male")
@@ -53,7 +53,7 @@ function create_hunter(player)
 		end
 	end
 
-	if (selected_mesh == "NanosWorld::SK_Female") then
+	if (selected_mesh == "nanos-world::SK_Female") then
 		local selected_hair = sk_female_hair_meshes[math.random(#sk_female_hair_meshes)]
 		if (selected_hair ~= "") then
 			new_char:AddStaticMeshAttached("hair", selected_hair, "hair_female")
@@ -66,9 +66,9 @@ function create_hunter(player)
 	end
 
 	-- Adds eyes to humanoid meshes
-	if (selected_mesh == "NanosWorld::SK_Male" or selected_mesh == "NanosWorld::SK_Female") then
-		new_char:AddStaticMeshAttached("eye_left", "NanosWorld::SM_Eye", "eye_left")
-		new_char:AddStaticMeshAttached("eye_right", "NanosWorld::SM_Eye", "eye_right")
+	if (selected_mesh == "nanos-world::SK_Male" or selected_mesh == "nanos-world::SK_Female") then
+		new_char:AddStaticMeshAttached("eye_left", "nanos-world::SM_Eye", "eye_left")
+		new_char:AddStaticMeshAttached("eye_right", "nanos-world::SM_Eye", "eye_right")
 		
 		-- Those parameters are specific to humanoid meshes (were added in their materials)
 		new_char:SetMaterialColorParameter("HairTint", Color(math.random(),math.random(),math.random()))
@@ -91,9 +91,9 @@ function create_hunter(player)
 			 game_end("bots")
 		end
 		if (instigator) then
-			Server:BroadcastChatMessage("<cyan>" .. instigator:GetName() .. "</> killed <cyan>" .. player:GetName() .. "</>")
+			Server.BroadcastChatMessage("<cyan>" .. instigator:GetName() .. "</> killed <cyan>" .. player:GetName() .. "</>")
 		else
-			Server:BroadcastChatMessage("<cyan>" .. player:GetName() .. "</> died")
+			Server.BroadcastChatMessage("<cyan>" .. player:GetName() .. "</> died")
 		end
 	end)
 end
