@@ -21,7 +21,7 @@ list_of_hunters = {}
 
 function PlayTheme()
 	local thm = "music_0"..tostring(math.random(1,8))
-	Events.BroadcastRemote("Theme", "TuringTest::" .. thm)
+	Events.BroadcastRemote("Theme", "turing-test::" .. thm)
 end
 
 function stop_theme()
@@ -29,11 +29,11 @@ function stop_theme()
 end
 
 function changeMap()
-	Server.ChangeMap("PolygonCity::" .. Assets.GetMaps("PolygonCity")(math.random[#Assets.GetMaps("PolygonCity")]))
+	Server.ChangeMap("polygon-city::" .. Assets.GetMaps("PolygonCity")(math.random[#Assets.GetMaps("PolygonCity")]))
 end
 
 function spawn_timer()
-	Timer.SetTimeout(function()
+	Timer.SetInterval(function()
 		Events.BroadcastRemote("StartTimer", start_time)
 		if start_time == 1 then
 			clear()
@@ -42,7 +42,7 @@ function spawn_timer()
 			Package.Log("Starting bc there are more than 1 player")
 		end
 		start_time = start_time - 1
-	end, 1000);
+	end, 1000)
 end
 
 function spawnPlayer(player)
@@ -173,7 +173,7 @@ function game_end(winner)
 				add_money(k, 1000)
 			end
 
-			Events.BroadcastRemote("Music", "TuringTest::bot_win")
+			Events.BroadcastRemote("Music", "turing-test::bot_win")
 
 			bot_points = bot_points + 1
 
@@ -187,7 +187,7 @@ function game_end(winner)
 				add_money(k, 1000)
 			end
 
-			Events.BroadcastRemote("Music", "TuringTest::human_win")
+			Events.BroadcastRemote("Music", "turing-test::human_win")
 
 			human_points = human_points + 1
 
@@ -366,7 +366,7 @@ function spawn_props(prps_obj)
 		local sm = StaticMesh(
 			head,
 			Rotator(0, 0, 0),
-			"PolygonCity::SM_Prop_HotdogStand_01"
+			"polygon-city::SM_Prop_HotdogStand_01"
 		)
 	end
 
@@ -377,13 +377,13 @@ function spawn_props(prps_obj)
 		local p = Prop(
 			head,
 			Rotator(0, 0, 0),
-			"PolygonCity::"..prop
+			"polygon-city::"..prop
 		)
 
 		local q = Prop(
 			op[math.random(#op)],
 			Rotator(0, 0, 0),
-			"PolygonCity::".. prop
+			"polygon-city::".. prop
 		)
 
 		p:SetValue("flag", prop)

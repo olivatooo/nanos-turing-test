@@ -27,8 +27,7 @@ function despair(bot)
 	random_move(bot)
 	random_look(bot)
 
-	local my_id = Timer:SetTimeout(math.random(500, 1260), function(m_bot)
-
+	local my_id = Timer.SetInterval(function(m_bot)
 		if not m_bot:IsValid() then
 			return false
 		end
@@ -63,7 +62,7 @@ function despair(bot)
 			return false
 		end
 
-	end, {bot})
+	end, math.random(500, 1260), bot)
 end
 
 function bot_movement_config(bot)
@@ -77,14 +76,14 @@ function bot_movement_config(bot)
 
 	bot:Subscribe("TakeDamage", function(chara, last_damage_taken, last_bone_damaged, damage_reason, hit_from, instigator)
 		if math.random(0,100)>50 then
-			despair(bot)
+			despair(chara)
 		end
 	end)
 end
 
 function bot_movement()
 	Package.Log("Bot movement started")
-	bot_m = Timer.SetTimeout(function()
+	bot_m = Timer.SetInterval(function()
 		if #bots == 0 then
 			Package.Log("THERE ARE NO BOTS")
 			return false
@@ -104,7 +103,7 @@ function bot_movement()
 
 		if math.random(0, 100) > 50 then
 			local talk_bot = bots[math.random(#bots)]
-			local talk = "PolygonCity::taunt_" .. math.random(1,150)
+			local talk = "polygon-city::taunt_" .. math.random(1,150)
 			Events.BroadcastRemote("Voice", talk_bot, talk)
 		end
 

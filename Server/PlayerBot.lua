@@ -54,7 +54,7 @@ Events.Subscribe("TauntVoice", function(player)
 	if player:GetControlledCharacter() ~= nil then
 		if player:GetValue("money") >= 10 then
 			add_money(player, -10)
-			local talk = "PolygonCity::taunt_" .. tostring(math.random(1,150))
+			local talk = "polygon-city::taunt_" .. tostring(math.random(1,150))
 			Events.BroadcastRemote("Voice", player:GetControlledCharacter(), talk)
 		end
 	end
@@ -93,7 +93,7 @@ end)
 
 function complete_objective(key)
     table.remove(new_obj, 1)
-	Events.BroadcastRemote("Music", "PolygonCity::meow")
+	Events.BroadcastRemote("Music", "polygon-city::meow")
     Events.BroadcastRemote("CompleteObjective", key)
     if #new_obj == 0 then
 		game_end("bots")
