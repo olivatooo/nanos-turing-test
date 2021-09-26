@@ -7,19 +7,19 @@ function create_bot(player, mannequin)
 	number_of_bots = number_of_bots + 1
 	player:Possess(mannequin)
 	mannequin:SetCanPickupPickables(false)
-	Events:CallRemote("SetTeam", player, {"bot"})
+	Events.CallRemote("SetTeam", player, "bot")
 	mannequin:Subscribe("Death", function(chara, last_damage_taken, last_bone_damaged, damage_reason, hit_from, instigator)
 		number_of_bots = number_of_bots - 1
-		Events:BroadcastRemote("KilledBot", {})
+		Events.BroadcastRemote("KilledBot")
 		spectator(player)
 		if number_of_bots == 0 then
 			 game_end("human")
 		end
 		if (instigator) then
 			add_money(instigator, 100)
-			Server:BroadcastChatMessage("<cyan>" .. instigator:GetName() .. "</> killed <cyan>" .. player:GetName() .. "</>")
+			Server.BroadcastChatMessage("<cyan>" .. instigator:GetName() .. "</> killed <cyan>" .. player:GetName() .. "</>")
 		else
-			Server:BroadcastChatMessage("<cyan>" .. player:GetName() .. "</> died")
+			Server.BroadcastChatMessage("<cyan>" .. player:GetName() .. "</> died")
 		end
 	end)
 end
@@ -28,40 +28,40 @@ function highlight_bots()
 	for index, value in ipairs(list_of_bots) do
 		for idx, val in ipairs(list_of_bots) do
 			if value ~= val then
-				Events:CallRemote("HightlightBot", value, {val:GetControlledCharacter()})
+				Events.CallRemote("HightlightBot", value, val:GetControlledCharacter())
 			end
 		end
 	end
 end
 
 
-Events:Subscribe("TauntAnim", function(player)
+Events.Subscribe("TauntAnim", function(player)
 	if player:GetControlledCharacter() ~= nil then
 		if player:GetValue("money") >= 10 then
 			add_money(player, -10)
 			local anim_bot = player:GetControlledCharacter()
 			if anim_bot:GetGaitMode() == 0 then
-				anim_bot:PlayAnimation("NanosWorld::" .. assets_list[math.random(#assets_list)], math.random(0,1))
+				anim_bot:PlayAnimation("nanos-world::" .. assets_list[math.random(#assets_list)], math.random(0,1))
 			else
-				anim_bot:PlayAnimation("NanosWorld::" .. assets_list[math.random(#assets_list)], AnimationSlotType.UpperBody)
+				anim_bot:PlayAnimation("nanos-world::" .. assets_list[math.random(#assets_list)], AnimationSlotType.UpperBody)
 			end
 		end
 	end
 end
 )
 
-Events:Subscribe("TauntVoice", function(player)
+Events.Subscribe("TauntVoice", function(player)
 	if player:GetControlledCharacter() ~= nil then
 		if player:GetValue("money") >= 10 then
 			add_money(player, -10)
-			local talk = "PolygonCity::taunt_" .. tostring(math.random(1,150))
-			Events:BroadcastRemote("Voice", {player:GetControlledCharacter(), talk})
+			local talk = "polygon-city::taunt_" .. tostring(math.random(1,150))
+			Events.BroadcastRemote("Voice", player:GetControlledCharacter(), talk)
 		end
 	end
 end
 )
 
-Events:Subscribe("Disguise", function (player)
+Events.Subscribe("Disguise", function (player)
 	if player:GetControlledCharacter() ~= nil then
 		if player:GetValue("money") >= 100 then
 			add_money(player, -100)
@@ -93,8 +93,8 @@ end)
 
 function complete_objective(key)
     table.remove(new_obj, 1)
-	Events:BroadcastRemote("Music", {"PolygonCity::meow"})
-    Events:BroadcastRemote("CompleteObjective", {key})
+	Events.BroadcastRemote("Music", "polygon-city::meow")
+    Events.BroadcastRemote("CompleteObjective", key)
     if #new_obj == 0 then
 		game_end("bots")
     end

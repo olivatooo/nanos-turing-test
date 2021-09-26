@@ -1,31 +1,31 @@
 -- List of Character Meshes
 character_meshes = {
-	"NanosWorld::SK_Male",
-	"NanosWorld::SK_Female",
-	"NanosWorld::SK_Mannequin"
+	"nanos-world::SK_Male",
+	"nanos-world::SK_Female",
+	"nanos-world::SK_Mannequin"
 }
 
 -- List of SK_Male hair Static Meshes
 sk_male_hair_meshes = {
 	"",
-	"NanosWorld::SM_Hair_Long",
-	"NanosWorld::SM_Hair_Short"
+	"nanos-world::SM_Hair_Long",
+	"nanos-world::SM_Hair_Short"
 }
 
 -- List of SK_Male beard Static Meshes
 sk_male_beard_meshes = {
 	"",
-	"NanosWorld::SM_Beard_Extra",
-	"NanosWorld::SM_Beard_Middle",
-	"NanosWorld::SM_Beard_Mustache_01",
-	"NanosWorld::SM_Beard_Mustache_02",
-	"NanosWorld::SM_Beard_Side"
+	"nanos-world::SM_Beard_Extra",
+	"nanos-world::SM_Beard_Middle",
+	"nanos-world::SM_Beard_Mustache_01",
+	"nanos-world::SM_Beard_Mustache_02",
+	"nanos-world::SM_Beard_Side"
 }
 
 -- List of SK_Female hair Static Meshes
 sk_female_hair_meshes = {
 	"",
-	"NanosWorld::SM_Hair_Kwang"
+	"nanos-world::SM_Hair_Kwang"
 }
 
 human_morph_targets = {
@@ -64,30 +64,30 @@ human_morph_targets = {
 }
 
 shirt = {
-	"NanosWorld::SK_Shirt",
-	"NanosWorld::SK_Underwear"
+	"nanos-world::SK_Shirt",
+	"nanos-world::SK_Underwear"
 }
 
 pants = {
-	"NanosWorld::SK_Pants"
+	"nanos-world::SK_Pants"
 }
 
 shoes = {
-	"NanosWorld::SK_Shoes_01",
-	"NanosWorld::SK_Tie",
-	"NanosWorld::SK_Sneakers"
+	"nanos-world::SK_Shoes_01",
+	"nanos-world::SK_Tie",
+	"nanos-world::SK_Sneakers"
 }
 
 beard = {
-	"NanosWorld::SM_Beard_Extra",
-	"NanosWorld::SM_Beard_Middle",
-	"NanosWorld::SM_Beard_Mustache_01",
-	"NanosWorld::SM_Beard_Mustache_02",
-	"NanosWorld::SM_Beard_Side"
+	"nanos-world::SM_Beard_Extra",
+	"nanos-world::SM_Beard_Middle",
+	"nanos-world::SM_Beard_Mustache_01",
+	"nanos-world::SM_Beard_Mustache_02",
+	"nanos-world::SM_Beard_Side"
 }
 
 hair = {
-	"NanosWorld::SM_Hair_Long",
-	"NanosWorld::SM_Hair_Short",
-	"NanosWorld::SM_Hair_Kwang"
+	"nanos-world::SM_Hair_Long",
+	"nanos-world::SM_Hair_Short",
+	"nanos-world::SM_Hair_Kwang"
 }

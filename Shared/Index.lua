@@ -1,2 +1,2 @@
-assets_list = Assets:GetAnimations("NanosWorld")
-voice_list = Assets:GetSounds("PolygonCity")
+assets_list = Assets.GetAnimations("nanos-world")
+voice_list = Assets.GetSounds("PolygonCity")
